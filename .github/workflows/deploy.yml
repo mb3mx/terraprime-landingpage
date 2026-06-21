@@ -108,18 +108,15 @@ jobs:
             docker stop terraprime 2>/dev/null || true
             docker rm   terraprime 2>/dev/null || true
 
-            echo "=== Liberar puerto 80 si está ocupado ==="
-            CONTAINER_PORT80=$(docker ps --filter "publish=80" -q)
-            if [ -n "$CONTAINER_PORT80" ]; then
-              docker stop $CONTAINER_PORT80 || true
-              docker rm   $CONTAINER_PORT80 || true
-            fi
-
             echo "=== Iniciar nuevo contenedor ==="
             docker run -d \
               --name terraprime \
               --restart unless-stopped \
-              -p 80:80 \
+              --network host \
+              --label "traefik.enable=true" \
+              --label "traefik.http.routers.terraprime.rule=Host(\`terraprime.mx\`) || Host(\`www.terraprime.mx\`)" \
+              --label "traefik.http.routers.terraprime.entrypoints=web,websecure" \
+              --label "traefik.http.services.terraprime.loadbalancer.server.port=80" \
               "${IMAGE}:${TAG}"
 
             echo "=== Limpiar imágenes antiguas ==="
