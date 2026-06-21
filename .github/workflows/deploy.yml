@@ -6,6 +6,11 @@ on:
     branches:
       - main
 
+  # Verifica el build en PRs hacia main (status check para branch protection)
+  pull_request:
+    branches:
+      - main
+
   # Deploy manual con tag personalizado
   workflow_dispatch:
     inputs:
@@ -76,6 +81,7 @@ jobs:
     name: Deploy en Producción
     runs-on: ubuntu-latest
     needs: build
+    if: github.event_name != 'pull_request'
     environment: production
 
     steps:
