@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html class="html-email-chronostart" lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+
+<head>
+    <meta charset="utf-8"> <!-- utf-8 works for most cases -->
+    <meta name="viewport" content="width=device-width"> <!-- Forcing initial-scale shouldn't be necessary -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Use the latest (edge) version of IE rendering engine -->
+    <meta name="x-apple-disable-message-reformatting"> <!-- Disable auto-scale in iOS 10 Mail entirely -->
+    <title></title> <!-- The title tag shows in email notifications, like Android 4.4. -->
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:200,300,400,500,600,700" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <!-- CSS Reset : BEGIN -->
+    <style>
+        html.html-email-chronostart,
+        body.body-email-chronostart {
+            margin: 0 auto !important;
+            padding: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+            background: #f1f1f1;
+        }
+
+        /* What it does: Stops email clients resizing small text. */
+        * {
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* What it does: Centers email on Android 4.4 */
+        body.body-email-chronostart div[style*="margin: 16px 0"] {
+            margin: 0 !important;
+        }
+
+        /* What it does: Stops Outlook from adding extra spacing to tables. */
+        body.body-email-chronostart table,
+        body.body-email-chronostart td {
+            mso-table-lspace: 0pt !important;
+            mso-table-rspace: 0pt !important;
+        }
+
+        /* What it does: Fixes webkit padding issue. */
+        body.body-email-chronostart table {
+            border-spacing: 0 !important;
+            border-collapse: collapse !important;
+            table-layout: fixed !important;
+            margin: 0 auto !important;
+        }
+
+        /* What it does: Uses a better rendering method when resizing images in IE. */
+        body.body-email-chronostart img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* What it does: Prevents Windows 10 Mail from underlining links despite inline CSS. Styles for underlined links should be inline. */
+        body.body-email-chronostart a {
+            text-decoration: none;
+            color: #042D52 !important;
+        }
+
+        /* What it does: A work-around for email clients meddling in triggered links. */
+        *[x-apple-data-detectors],
+        /* iOS */
+        body.body-email-chronostart .unstyle-auto-detected-links *,
+        body.body-email-chronostart .aBn {
+            border-bottom: 0 !important;
+            cursor: default !important;
+            color: inherit !important;
+            text-decoration: none !important;
+            font-size: inherit !important;
+            font-family: inherit !important;
+            font-weight: inherit !important;
+            line-height: inherit !important;
+        }
+
+        /* What it does: Prevents Gmail from displaying a download button on large, non-linked images. */
+        body.body-email-chronostart .a6S {
+            display: none !important;
+            opacity: 0.01 !important;
+        }
+
+        /* What it does: Prevents Gmail from changing the text color in conversation threads. */
+        body.body-email-chronostart .im {
+            /* color: inherit !important; */
+            color: #444444 !important;
+        }
+
+        /* If the above doesn't work, add a .g-img class to any image in question. */
+        body.body-email-chronostart img.g-img+div {
+            display: none !important;
+        }
+
+        /* body.body-email-chronostart table.table-event-main-img {
+            margin: 0 2.4em !important;
+        } */
+        body.body-email-chronostart table.table-event-main-img {
+            width: 100%;
+        }
+
+        body.body-email-chronostart table.table-event-main-img tr td {
+            padding: 0 2.4em !important;
+        }
+
+        body.body-email-chronostart table.table-event-main-img img {
+            width: 100%;
+        }
+
+        body.body-email-chronostart table.table-event-main tr td table tr th a {
+            line-height: initial !important;
+        }
+
+        /* What it does: Removes right gutter in Gmail iOS app: https://github.com/TedGoas/Cerberus/issues/89  */
+        /* Create one of these media queries for each additional viewport size you'd like to fix */
+
+        /* iPhone 4, 4S, 5, 5S, 5C, and 5SE */
+        @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+            u~div .email-container {
+                min-width: 320px !important;
+            }
+
+            table.table-event-main tr td {
+                width: 100% !important;
+                display: block;
+                text-align: center !important;
+                padding: 0 !important;
+            }
+
+            body.body-email-chronostart .email-section {
+                padding: 1em !important;
+            }
+
+            body.body-email-chronostart table.table-event-main-img tr td {
+                padding: 0 1em !important;
+            }
+
+            table.table-events-seconds tr td.text-services h3,
+            table.table-events-seconds tr td.text-services p,
+            table.table-events-seconds tr td.text-services span {
+                font-size: 10px !important;
+            }
+
+            table.table-events-seconds-three tr td.text-services h3,
+            table.table-events-seconds-three tr td.text-services p,
+            table.table-events-seconds-three tr td.text-services span {
+                font-size: 8px !important;
+            }
+
+            td.bg_black.footer table tr td {
+                display: block;
+                width: 100% !important;
+            }
+
+            body.body-email-chronostart table.table-events-seconds tr td a>img {
+                height: 100px !important;
+            }
+
+            body.body-email-chronostart table.table-events-seconds-three tr td a>img {
+                height: 80px !important;
+            }
+        }
+
+        /* iPhone 6, 6S, 7, 8, and X */
+        @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+            u~div .email-container {
+                min-width: 375px !important;
+            }
+
+            table.table-event-main tr td {
+                width: 100% !important;
+                display: block;
+                text-align: center !important;
+                padding: 0 !important;
+            }
+
+            body.body-email-chronostart .email-section {
+                padding: 1em !important;
+            }
+
+            body.body-email-chronostart table.table-event-main-img tr td {
+                padding: 0 1em !important;
+            }
+
+            table.table-events-seconds tr td.text-services h3,
+            table.table-events-seconds tr td.text-services p,
+            table.table-events-seconds tr td.text-services span {
+                font-size: 10px !important;
+            }
+
+            table.table-events-seconds-three tr td.text-services h3,
+            table.table-events-seconds-three tr td.text-services p,
+            table.table-events-seconds-three tr td.text-services span {
+                font-size: 8px !important;
+            }
+
+            td.bg_black.footer table tr td {
+                display: block;
+                width: 100% !important;
+            }
+
+            body.body-email-chronostart table.table-events-seconds tr td a>img {
+                height: 100px !important;
+            }
+
+            body.body-email-chronostart table.table-events-seconds-three tr td a>img {
+                height: 80px !important;
+            }
+        }
+
+        @media only screen and (min-device-width: 413px) and (max-device-width: 489px) {
+            table.table-event-main tr td {
+                width: 100% !important;
+                display: block;
+                text-align: center !important;
+                padding: 0 !important;
+            }
+
+            table.table-event-main tr td a.btn-primary {
+                margin-top: 10px;
+            }
+
+            table.table-events-seconds tr td.text-services h3,
+            table.table-events-seconds tr td.text-services p,
+            table.table-events-seconds tr td.text-services span,
+            table.table-events-seconds-three tr td.text-services h3,
+            table.table-events-seconds-three tr td.text-services p,
+            table.table-events-seconds-three tr td.text-services span {
+                font-size: 10px !important;
+            }
+
+            table.table-events-seconds-three tr td.text-services a.btn-primary {
+                padding: 5px 5px !important;
+            }
+
+            td.bg_black.footer table tr td {
+                display: block;
+                width: 100% !important;
+            }
+
+            body.body-email-chronostart table.table-events-seconds tr td a>img {
+                height: 140px !important;
+            }
+
+            body.body-email-chronostart table.table-events-seconds-three tr td a>img {
+                height: 100px !important;
+            }
+        }
+
+        /* iPhone 6+, 7+, and 8+ */
+        @media only screen and (min-device-width: 414px) {
+            u~div .email-container {
+                min-width: 414px !important;
+            }
+        }
+
+        body.body-email-chronostart .primary {
+            background: #448ef6;
+        }
+
+        body.body-email-chronostart .bg_white {
+            background: #ffffff;
+        }
+
+        body.body-email-chronostart .bg_light {
+            background: #fafafa;
+        }
+
+        body.body-email-chronostart .bg_black {
+            background: #000000;
+        }
+
+        body.body-email-chronostart .bg_dark {
+            background: rgba(0, 0, 0, .8);
+        }
+
+        body.body-email-chronostart .email-section {
+            padding: 2.5em;
+        }
+
+        /*BUTTON*/
+        body.body-email-chronostart .btn {
+            padding: 5px 15px;
+            display: inline-block;
+        }
+
+        body.body-email-chronostart .btn.btn-primary {
+            border-radius: 30px;
+            background: #042D52;
+            color: #ffffff !important;
+        }
+
+        body.body-email-chronostart .btn.btn-white {
+            border-radius: 30px;
+            background: #ffffff;
+            color: #000000;
+        }
+
+        body.body-email-chronostart .btn.btn-white-outline {
+            border-radius: 30px;
+            background: transparent;
+            border: 1px solid #fff;
+            color: #fff;
+        }
+
+        body.body-email-chronostart h1,
+        body.body-email-chronostart h2,
+        body.body-email-chronostart h3,
+        body.body-email-chronostart h4,
+        body.body-email-chronostart h5,
+        body.body-email-chronostart h6 {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-family: 'Work Sans', sans-serif;
+            color: #000000;
+            margin-top: 0;
+            font-weight: 400;
+        }
+
+        body.body-email-chronostart {
+            font-family: 'Trebuchet MS', sans-serif;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 1.8;
+            color: rgba(0, 0, 0, .4);
+        }
+
+        body.body-email-chronostart a {
+            color: #448ef6;
+        }
+
+        body.body-email-chronostart table {}
+
+        /*LOGO*/
+
+        body.body-email-chronostart .logo h1 {
+            margin: 0;
+        }
+
+        body.body-email-chronostart .logo h1 a {
+            color: #000000;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body.body-email-chronostart .navigation {
+            padding: 0;
+            margin: 0;
+        }
+
+        body.body-email-chronostart .navigation li {
+            list-style: none;
+            display: inline-block;
+            ;
+            margin-left: 5px;
+            margin-top: 10px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        body.body-email-chronostart .navigation li a {
+            color: rgba(0, 0, 0, .4);
+        }
+
+        /*HERO*/
+        body.body-email-chronostart .hero {
+            position: relative;
+            z-index: 0;
+        }
+
+        body.body-email-chronostart .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            content: '';
+            width: 100%;
+            background: #000000;
+            z-index: -1;
+            opacity: .3;
+        }
+
+        body.body-email-chronostart .hero .text {
+            color: rgba(255, 255, 255, .9);
+        }
+
+        body.body-email-chronostart .hero .text h2 {
+            color: #fff;
+            font-size: 50px;
+            margin-bottom: 0;
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        body.body-email-chronostart .hero .text h2 span {
+            font-weight: 600;
+            color: #448ef6;
+        }
+
+
+        /*HEADING SECTION*/
+        body.body-email-chronostart .heading-section {}
+
+        body.body-email-chronostart .heading-section h2 {
+            color: #000000;
+            font-size: 28px;
+            margin-top: 0;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        body.body-email-chronostart .heading-section .subheading {
+            margin-bottom: 20px !important;
+            display: inline-block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(0, 0, 0, .4);
+            position: relative;
+        }
+
+        body.body-email-chronostart .heading-section .subheading::after {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -10px;
+            content: '';
+            width: 100%;
+            height: 2px;
+            background: #448ef6;
+            margin: 0 auto;
+        }
+
+        body.body-email-chronostart .heading-section-white {
+            color: rgba(255, 255, 255, .8);
+        }
+
+        body.body-email-chronostart .heading-section-white h2 {
+            /* font-family: */
+            line-height: 1;
+            padding-bottom: 0;
+        }
+
+        body.body-email-chronostart .heading-section-white h2 {
+            color: #ffffff;
+        }
+
+        body.body-email-chronostart .heading-section-white .subheading {
+            margin-bottom: 0;
+            display: inline-block;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, .4);
+        }
+
+
+        /*BLOG*/
+        body.body-email-chronostart .text-services .meta {
+            /* text-transform: uppercase; */
+            font-size: 14px;
+            margin-bottom: 0;
+            color: gray;
+            margin: 0;
+        }
+
+        body.body-email-chronostart .text-services .place {
+            /* text-transform: uppercase; */
+            font-size: 14px;
+            margin-bottom: 0;
+            color: gray;
+            margin: 0;
+        }
+
+        /*FOOTER*/
+
+        body.body-email-chronostart .footer {
+            color: rgba(255, 255, 255, .5);
+
+        }
+
+        body.body-email-chronostart .footer .heading {
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        body.body-email-chronostart .footer ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        body.body-email-chronostart .footer ul li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+
+        body.body-email-chronostart .footer ul li a {
+            color: rgba(255, 255, 255, 1);
+        }
+
+        body.body-email-chronostart td.email-section table tr td table tr td {
+            /* text-align: center !important; */
+        }
+
+        @media screen and (max-width: 500px) {}
+
+        .body-email-chronostart table.table-events-seconds tr td a img {
+            height: 220px !important;
+        }
+
+        .body-email-chronostart table.table-events-seconds-three tr td a img {
+            height: 160px !important;
+        }
+
+        .img-custom{
+            filter: opacity(0.4) drop-shadow(0 0 0 rgb(255, 255, 255));
+        }
+    </style>
+
+</head>
+
+<body width="100%" class="body-email-chronostart" style="margin: 0;
+        padding: 0 !important;
+        mso-line-height-rule: exactly;
+        background-color: #222222;">
+
+    <center style="width: 100%;
+        background-color: #f1f1f1;">
+
+        <table style="margin-top: 5px !important;
+            text-align: center;">
+            <tr>
+                <td style="font-size: 12px;
+                    padding: 0 1em;">
+                    Agrega <a href="">"ventas@goldenluxurydev.com"</a> a tu lista de direcciones
+                </td>
+            </tr>
+        </table>
+
+        <div class="email-container" style="max-width: 600px;
+                background-color: #fff;
+                margin: 0 auto;">
+
+            <!-- BEGIN BODY -->
+            <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+                style="margin: auto;">
+
+                <tr style="background: #00B98E;">
+                    <td valign="top" class=" " style="padding: 1em 1.5em;">
+
+                        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr>
+                                <td class="logo" style="text-align: left; width: 10%">
+
+                                    <a href="https://www.goldenluxurydev.com/" target="_blank">
+                                        <img src="https://goldenluxurydev.com/storage/marketing/images/logo.png" class="img-custom"
+                                            alt="Logotipo" style="float: left;
+                                                width:130%;">
+                                    </a>
+
+                                </td>
+                                <td style="width: 55%; ">
+                                    <h1 class="meta" style="text-align:center;font: 200% sans-serif;
+                                    color:#ffffff; font-weight: bold;padding-top: 2%;">
+
+                                        ¡ Gran venta de lotes !
+                                    </h1>
+                                    <h1 class="meta" style="text-align:center;font: 100% sans-serif;
+                                    color:#ffffff; font-weight: bold ">
+
+                                        Bahías de Huatulco, Oaxaca
+                                    </h1>
+                                </td> 
+
+                            </tr>
+                        </table>
+                    </td>
+                </tr><!-- end tr -->
+
+                <tr>
+                    <td>
+                        <hr style="border: 0.7px solid #e2e2e2;
+                            width: 87%;
+                            margin: 20px auto;
+                            margin-top: -10px;
+                            margin-bottom: 30px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="overflow-wrap:break-word;word-break:break-word;padding:0em 0em 1em;;font-family:'Cabin',sans-serif;"
+                        align="left">
+
+                        <!--[if mso]><style>.v-button {background: transparent !important;}</style><![endif]-->
+                        <div align="center">
+                            <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:44px; v-text-anchor:middle; width:216px;" arcsize="9%"  stroke="f" fillcolor="#ff6600"><w:anchorlock/><center style="color:#FFFFFF;font-family:'Cabin',sans-serif;"><![endif]-->
+                            <a href="https://goldenluxurydev.com" target="_blank" class="v-button"
+                                style="box-sizing: border-box;display: inline-block;font-family:'Cabin',sans-serif;text-decoration: none;-webkit-text-size-adjust: none;text-align: center;color: #FFFFFF; background-color: #ff6600; border-radius: 4px;-webkit-border-radius: 4px; -moz-border-radius: 4px; width:auto; max-width:100%; overflow-wrap: break-word; word-break: break-word; word-wrap:break-word; mso-border-alt: none;font-size: 14px;">
+                                <span style="display:block;padding:14px 44px 13px;line-height:120%;"><span
+                                        style="line-height: 16.8px;"><strong><span style="line-height: 16.8px;"> VER
+                                                OFERTAS IR ▶</span></strong>
+                                    </span>
+                                </span>
+                            </a>
+                            <!--[if mso]></center></v:roundrect><![endif]-->
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="middle" style="width: 100%;
+                            background-color: #fff;">
+
+                        <div class="overlay"></div>
+
+                        <table class="table-event-main-img" style="text-align: center;">
+
+                            <tr>
+                                <td>
+                                    <a href="https://www.goldenluxurydev.com/" target="_blank">
+                                        <img src="https://goldenluxurydev.com/storage/marketing/images/san_agustin.jpeg"
+                                            width="100%" alt="Terreno San Agustin">
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table-event-main" style="width: 100%;">
+
+                            <tr>
+                                <td style="width: 100%;
+                                    text-align: left;
+                                    padding-left: 2.4em;">
+
+                                    <table style="margin: 0 !important;
+                                        width: 100% !important;">
+                                        <tr>
+                                            <th style="color: #042D52;
+                                                font-weight: 700;">
+
+                                                <a href="https://www.goldenluxurydev.com/" target="_blank">
+                                                    LOTE - PLAYA SAN AGUSTIN
+                                                </a>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    <img src="https://goldenluxurydev.com/storage/marketing/images/dateicon.png"
+                                                        alt="Ícono de fecha" width="10">
+                                                    300 m2
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    🏝️A 800 metros de la Bahía San Agustín y a 1
+                                                    Kilómetro de Playa Coyote y Playa Riscalillo
+                                                </p>
+                                                <p class="meta">✈️A 20 Minutos del Aeropuerto Internacional de Huatulco
+                                                    y 30 Minutos de Bahías de
+                                                    Huatulco</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    🌄Cuenta con vista privilegiada hacia playa San Agustin.
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    <img src="https://goldenluxurydev.com/storage/marketing/images/markericon.png"
+                                                        alt="Ícono de fecha" width="9">
+                                                    San Agustín, Huatulco, Oaxaca
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+
+                                <td style="width: 50%;
+                                    padding-right: 2.4em;
+                                    text-align: right;">
+
+                                    <a href="https://www.goldenluxurydev.com/" target="_blank" class="btn btn-primary">
+                                        Mas Detalles
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr><!-- end tr -->
+
+                <tr>
+                    <td>
+                        <hr style="border: 0.7px solid #e2e2e2;
+                            width: 87%;
+                            margin: 20px auto;
+                            margin-bottom: 30px;">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td valign="middle" style="width: 100%;
+                            background-color: #fff;">
+
+                        <div class="overlay"></div>
+
+                        <table class="table-event-main-img" style="text-align: center;">
+
+                            <tr>
+                                <td>
+                                    <a href="https://www.goldenluxurydev.com/" target="_blank">
+                                        <img src="http://goldenluxurydev.com/storage/marketing/images/santafe_crucero.jpeg"
+                                            width="100%" alt="Techal Blanco">
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table-event-main" style="width: 100%;">
+                            <tr>
+                                <td style="width: 100%;
+                                    text-align: left;
+                                    padding-left: 2.4em;">
+
+                                    <table style="margin: 0 !important;
+                                        width: 100% !important;">
+                                        <tr>
+                                            <th style="color: #042D52;
+                                                font-weight: 700;">
+
+                                                <a href="https://www.goldenluxurydev.com/" target="_blank">
+                                                    LOTES - CRUCERO HUATULCO
+                                                </a>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    <img src="https://goldenluxurydev.com/storage/marketing/images/dateicon.png"
+                                                        alt="Ícono de fecha" width="10">
+                                                    200 m2
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    ✈️A 2 Minutos del Aeropuerto Internacional de Huatulco y 15 Minutos
+                                                    de Bahías de Huatulco (playas y zona turística)
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    🔴 PLAN DE FINANCIAMIENTO (26 meses sin intereses )
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    <img src="https://goldenluxurydev.com/storage/marketing/images/markericon.png"
+                                                        alt="Ícono de fecha" width="9">
+                                                    El Crucero, Huatulco, Oaxaca
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+
+                                <td style="width: 50%;
+                                    padding-right: 2.4em;
+                                    text-align: right;">
+
+                                    <a href="https://www.goldenluxurydev.com/" target="_blank" class="btn btn-primary">
+                                        Mas Detalles
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr><!-- end tr -->
+
+                <tr>
+                    <td>
+                        <hr style="border: 0.7px solid #e2e2e2;
+                            width: 87%;
+                            margin: 20px auto;">
+                    </td>
+                </tr>
+                <!-- end: tr -->
+
+                <tr>
+                    <td valign="middle" style="width: 100%;
+                            background-color: #fff;">
+
+                        <div class="overlay"></div>
+
+                        <table class="table-event-main-img" style="text-align: center;">
+
+                            <tr>
+                                <td>
+                                    <a href="https://www.goldenluxurydev.com/" target="_blank">
+                                        <img src="https://goldenluxurydev.com/storage/marketing/images/santafe_techal.jpeg"
+                                            width="100%" alt="">
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="table-event-main" style="width: 100%;">
+                            <tr>
+                                <td style="width: 100%;
+                                    text-align: left;
+                                    padding-left: 2.4em;">
+
+                                    <table style="margin: 0 !important;
+                                        width: 100% !important;">
+                                        <tr>
+                                            <th style="color: #042D52;
+                                                font-weight: 700;">
+
+                                                <a href="https://www.goldenluxurydev.com/" target="_blank">
+                                                    LOTES - TECHAL BLANCO HUATULCO
+                                                </a>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    <img src="https://goldenluxurydev.com/storage/marketing/images/dateicon.png"
+                                                        alt="Ícono de fecha" width="10">
+                                                    200 m2
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    ✈️ A 15 Minutos del Aeropuerto Internacional de Huatulco y a 25
+                                                    minutos de Bahías de Huatulco (playas y zona turística)
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    🔴 PLAN DE FINANCIAMIENTO (26 meses sin intereses )
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-services">
+                                                <p class="meta">
+                                                    <img src="https://goldenluxurydev.com/storage/marketing/images/markericon.png"
+                                                        alt="Ícono de fecha" width="9">
+                                                    Techal Blanco, Huatulco, Oaxaca
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                </td>
+
+                                <td style="width: 50%;
+                                    padding-right: 2.4em;
+                                    text-align: right;">
+
+                                    <a href="https://www.goldenluxurydev.com/" target="_blank" class="btn btn-primary">
+                                        Mas Detalles
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr><!-- end tr -->
+                <tr>
+                    <td>
+                        <hr style="border: 0.7px solid #e2e2e2;
+                            width: 87%;
+                            margin: 20px auto;">
+                    </td>
+                </tr>
+                <!-- end: tr -->
+                <!-- 1 Column Text + Button : END -->
+            </table>
+
+            <table align="center" role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%"
+                style="margin: 0 auto;">
+
+                <tr>
+                    <td valign="middle" class="bg_black footer email-section">
+                        <table>
+                            <tr>
+                                <td valign="top" width="100%" style="display: block;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="text-align: right;
+                                                padding-left: 1rem;
+                                                padding-right: 1rem;">
+
+                                                <p style="text-align: center;">
+                                                    <a href="https://www.goldenluxurydev.com/" target="_blank"
+                                                        style="color: #4a8bc4 !important;">
+                                                        Descubre más en goldenluxurydev.com
+                                                    </a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+
+                                <td valign="top" width="100%" style="display: block;">
+                                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
+                                        <tr>
+                                            <td style="text-align: center;
+                                                padding-right: 10px;">
+
+                                                <p>&copy;
+                                                    <script>
+                                                        document.write(new Date().getFullYear());
+                                                    </script> Golden Luxury Promotions. All Rights Reserved
+                                                </p>
+                                            </td>
+                                            <td>
+                                                <img style="display:none" src="{{name_api}}"> 
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </center>
+</body>
+
+</html>

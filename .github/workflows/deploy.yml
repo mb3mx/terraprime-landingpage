@@ -1,0 +1,123 @@
+name: Build & Deploy — Terraprime
+
+on:
+  # Auto-deploy al hacer merge/push en main
+  push:
+    branches:
+      - main
+
+  # Deploy manual con tag personalizado
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag de la imagen Docker (ej: v5, v6)'
+        required: true
+        default: 'latest'
+
+env:
+  IMAGE: ghcr.io/mb3mx/homepages/terraprime
+
+jobs:
+  # ──────────────────────────────────────────────
+  # 1. Build y Push de la imagen Docker a GHCR
+  # ──────────────────────────────────────────────
+  build:
+    name: Build & Push
+    runs-on: ubuntu-latest
+
+    outputs:
+      tag: ${{ steps.tag.outputs.value }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolver tag
+        id: tag
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "value=${{ inputs.tag }}" >> $GITHUB_OUTPUT
+          else
+            echo "value=$(echo $GITHUB_SHA | cut -c1-7)" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Login a GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: mb3mx
+          password: ${{ secrets.GHCR_TOKEN }}
+
+      - name: Configurar Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build y Push imagen
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          file: ./Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ env.IMAGE }}:${{ steps.tag.outputs.value }}
+            ${{ env.IMAGE }}:latest
+
+      - name: Resumen del build
+        run: |
+          echo "### Docker image publicada" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Imagen:** \`${{ env.IMAGE }}:${{ steps.tag.outputs.value }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Commit:** \`${{ github.sha }}\`" >> $GITHUB_STEP_SUMMARY
+
+  # ──────────────────────────────────────────────
+  # 2. Deploy en el servidor 89.116.50.22
+  # ──────────────────────────────────────────────
+  deploy:
+    name: Deploy en Producción
+    runs-on: ubuntu-latest
+    needs: build
+    environment: production
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: 89.116.50.22
+          username: ${{ secrets.DEPLOY_USER }}
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: 22
+          script: |
+            set -e
+
+            IMAGE="ghcr.io/mb3mx/homepages/terraprime"
+            TAG="${{ needs.build.outputs.tag }}"
+
+            echo "=== Login en GHCR ==="
+            echo "${{ secrets.GHCR_TOKEN }}" | docker login ghcr.io -u mb3mx --password-stdin
+
+            echo "=== Pull imagen: ${IMAGE}:${TAG} ==="
+            docker pull "${IMAGE}:${TAG}"
+
+            echo "=== Detener contenedor anterior ==="
+            docker stop terraprime 2>/dev/null || true
+            docker rm   terraprime 2>/dev/null || true
+
+            echo "=== Iniciar nuevo contenedor ==="
+            docker run -d \
+              --name terraprime \
+              --restart unless-stopped \
+              -p 80:80 \
+              "${IMAGE}:${TAG}"
+
+            echo "=== Limpiar imágenes antiguas ==="
+            docker image prune -f
+
+            echo "=== Deploy exitoso: terraprime ${IMAGE}:${TAG} ==="
+
+      - name: Resumen del deploy
+        run: |
+          echo "### Deploy completado" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **Servidor:** \`89.116.50.22\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Contenedor:** \`terraprime\`" >> $GITHUB_STEP_SUMMARY
+          echo "- **Tag:** \`${{ needs.build.outputs.tag }}\`" >> $GITHUB_STEP_SUMMARY
