@@ -112,7 +112,11 @@ jobs:
             docker run -d \
               --name terraprime \
               --restart unless-stopped \
-              -p 80:80 \
+              --network host \
+              --label "traefik.enable=true" \
+              --label "traefik.http.routers.terraprime.rule=Host(\`terraprime.mx\`) || Host(\`www.terraprime.mx\`)" \
+              --label "traefik.http.routers.terraprime.entrypoints=web,websecure" \
+              --label "traefik.http.services.terraprime.loadbalancer.server.port=80" \
               "${IMAGE}:${TAG}"
 
             echo "=== Limpiar imágenes antiguas ==="
