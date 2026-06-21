@@ -105,14 +105,15 @@ jobs:
             docker pull "${IMAGE}:${TAG}"
 
             echo "=== Detener contenedor anterior ==="
-            docker stop terraprime 2>/dev/null || true
-            docker rm   terraprime 2>/dev/null || true
+            docker stop terraprime-landing 2>/dev/null || true
+            docker rm   terraprime-landing 2>/dev/null || true
 
             echo "=== Iniciar nuevo contenedor ==="
             docker run -d \
-              --name terraprime \
+              --name terraprime-landing \
               --restart unless-stopped \
               --network host \
+              --label "com.docker.compose.project=terraprime" \
               --label "traefik.enable=true" \
               --label "traefik.http.routers.terraprime.rule=Host(\`terraprime.mx\`) || Host(\`www.terraprime.mx\`)" \
               --label "traefik.http.routers.terraprime.entrypoints=web,websecure" \
