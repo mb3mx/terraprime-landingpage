@@ -1237,38 +1237,74 @@ html { scroll-behavior: smooth; }
     /* Expanded menu panel */
     #navbarCollapse {
         border-top: 1px solid rgba(0,0,0,.06);
-        padding: 6px 0 24px;
+        padding: 0 0 20px;
         background: #fff;
+        box-shadow: 0 12px 32px rgba(0,0,0,.08);
+    }
+
+    /* Mobile menu greeting header */
+    .mobile-menu-header {
+        padding: 14px 20px 10px;
+        border-bottom: 1px solid rgba(0,0,0,.05);
+        margin-bottom: 4px;
+    }
+    .mobile-menu-greeting {
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: var(--primary);
     }
 
     /* Each nav link */
     .navbar-light .navbar-nav .nav-link {
-        padding: 14px 20px !important;
+        padding: 15px 20px !important;
         margin-right: 0 !important;
-        border-bottom: 1px solid rgba(0,0,0,.05);
-        font-size: .95rem !important;
-        font-weight: 500 !important;
-        color: var(--dark) !important;
-        display: flex;
+        border-bottom: 1px solid rgba(0,0,0,.04);
+        font-size: .93rem !important;
+        font-weight: 600 !important;
+        color: #2d2d2d !important;
+        display: flex !important;
         align-items: center;
+        gap: 12px;
+        letter-spacing: .3px;
     }
     .navbar-light .navbar-nav .nav-link:hover,
     .navbar-light .navbar-nav .nav-link.active {
         color: var(--primary) !important;
-        background: rgba(221,166,78,.05);
+        background: rgba(221,166,78,.06);
+        padding-left: 24px !important;
+    }
+    .navbar-light .navbar-nav .nav-link.active {
+        border-left: 3px solid var(--primary);
+    }
+
+    /* Icon in each nav link (mobile only) */
+    .nav-icon {
+        width: 18px;
+        color: var(--primary);
+        font-size: .85rem;
+        flex-shrink: 0;
     }
 
     /* Dropdown items */
     .dropdown-menu {
         border: none !important;
-        background: #f8f8f8 !important;
-        border-radius: 10px !important;
-        margin: 4px 16px 0 !important;
-        padding: 6px 0 !important;
+        background: #fafafa !important;
+        border-radius: 0 !important;
+        margin: 0 !important;
+        padding: 4px 0 !important;
         box-shadow: none !important;
+        border-left: 3px solid rgba(221,166,78,.3) !important;
+        margin-left: 20px !important;
     }
-    .dropdown-item { padding: 11px 20px !important; font-size: .9rem !important; }
-    .dropdown-item:hover { color: var(--primary) !important; background: transparent !important; }
+    .dropdown-item {
+        padding: 11px 20px !important;
+        font-size: .88rem !important;
+        font-weight: 500 !important;
+        color: #444 !important;
+    }
+    .dropdown-item:hover { color: var(--primary) !important; background: rgba(221,166,78,.06) !important; }
 
     /* WhatsApp nav button → full pill at bottom of menu */
     .nav-wa-btn {
@@ -1281,6 +1317,8 @@ html { scroll-behavior: smooth; }
         justify-content: center !important;
         gap: 8px;
         width: calc(100% - 32px);
+        font-weight: 700 !important;
+        letter-spacing: .3px;
     }
 }
 
