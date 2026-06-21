@@ -108,6 +108,13 @@ jobs:
             docker stop terraprime 2>/dev/null || true
             docker rm   terraprime 2>/dev/null || true
 
+            echo "=== Liberar puerto 80 si está ocupado ==="
+            CONTAINER_PORT80=$(docker ps --filter "publish=80" -q)
+            if [ -n "$CONTAINER_PORT80" ]; then
+              docker stop $CONTAINER_PORT80 || true
+              docker rm   $CONTAINER_PORT80 || true
+            fi
+
             echo "=== Iniciar nuevo contenedor ==="
             docker run -d \
               --name terraprime \
