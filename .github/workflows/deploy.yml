@@ -84,7 +84,7 @@ jobs:
         with:
           host: 89.116.50.22
           username: ${{ secrets.DEPLOY_USER }}
-          password: ${{ secrets.DEPLOY_PASSWORD }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
           port: 22
           script: |
             set -e
