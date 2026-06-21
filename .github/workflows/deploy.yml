@@ -116,7 +116,7 @@ jobs:
               --label "traefik.enable=true" \
               --label "traefik.http.routers.terraprime.rule=Host(\`terraprime.mx\`) || Host(\`www.terraprime.mx\`)" \
               --label "traefik.http.routers.terraprime.entrypoints=web,websecure" \
-              --label "traefik.http.services.terraprime.loadbalancer.server.port=80" \
+              --label "traefik.http.services.terraprime.loadbalancer.server.port=8081" \
               "${IMAGE}:${TAG}"
 
             echo "=== Limpiar imágenes antiguas ==="
